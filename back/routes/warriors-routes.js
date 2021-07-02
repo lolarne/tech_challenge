@@ -11,7 +11,7 @@ router.use(
 );
 
 router.get('/get', async (req, res)=>{
-  const sql = "SELECT name FROM warriors";
+  const sql = "SELECT * FROM warriors";
   connection.query(sql, (err, results)=>{
     if(err){
       return res.status(500).send({errormessage: 'Cannot get the warriors name'});
@@ -20,5 +20,16 @@ router.get('/get', async (req, res)=>{
     }
   });
 });
+
+router.post('/add', (req, res)=>{
+  const sql = "INSERT INTO warriors SET ?";
+  connection.query(sql, req.body, (err, results)=>{
+    if(err){
+      return res.status(500).send({errormessage: 'Cannot add the warrior'});
+    }else{
+      return res.status(200).json({id: results.insertId, ...req.body});
+    }
+  });
+})
 
 module.exports = router;
