@@ -3,23 +3,23 @@ import axios from 'axios';
 import {FETCH} from '../../Fetch.js';
 import './list.scss';
 
-const List = () =>{
+const List = (newWarrior) =>{
     const [warriors, setWarriors] = useState([]);
 
     useEffect(()=>{
         (async ()=>{
             const getWarriors = await axios.get(`${FETCH}/warriors/get`);
 
-            if(getWarriors.data && JSON.stringify(warriors) !== JSON.stringify(getWarriors.data)){
+            if(newWarrior && getWarriors.data){
                 setWarriors(getWarriors.data);
             }
         })()
-    }, [warriors]);
+    }, [newWarrior]);
 
     return(
-        <div>
+        <div className="warriorList">
             <h2>Membres de l&apos;équipage</h2>
-            <div>
+            <div className="list">
                 <ul>
                     {warriors.map((warrior, warriorKey) =>(
                         <li key={warriorKey}>{warrior.name}</li>

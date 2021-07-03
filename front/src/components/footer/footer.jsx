@@ -3,7 +3,7 @@ import './footer.scss';
 const Footer = () =>{
     return(
         <div className='footer'>
-            <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
+            <p>Réalisé par Lola en Anthestérion de l'an 2021 après JC</p>
         </div>
     )
 }

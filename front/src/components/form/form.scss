@@ -1,0 +1,45 @@
+@import '../../index.scss';
+
+.form{
+    text-align: center;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        .formGroup{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            input{
+                margin: 8px 0;
+                padding: 8px 16px;
+            }
+        }
+    
+        button{
+            padding: 8px 16px;
+            border: none;
+            border-radius: 30px;
+            background-color: $main-color;
+            color: $light-color;
+            margin: 16px;
+    
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    
+        .message{
+            &.confirm{
+                color: green;
+            }
+    
+            &.error{
+                color: red;
+            }
+        }
+    }
+}
